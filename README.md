@@ -123,3 +123,45 @@ application integration.
 
 The deployed model excludes target variables, engine identifiers, and
 features that rely on knowledge of the final observed trajectory.
+
+
+### Baseline Model Results
+
+Four regression models were evaluated using an engine-grouped
+validation split to prevent cycles from the same engine from appearing
+in both training and validation data.
+
+The Random Forest Regressor achieved the best validation performance:
+
+- MAE: 9.68 cycles
+- RMSE: 14.04 cycles
+- R²: 0.887
+
+Compared with the dummy mean baseline, the selected model reduced MAE
+by approximately 73.8% and RMSE by approximately 66.3%.
+
+These results represent grouped validation performance. Separate
+evaluation against the official FD001 test-engine endpoints is
+performed before deployment.
+
+
+## Official FD001 Test Evaluation
+
+The selected Random Forest model is evaluated against the separate
+FD001 test set containing 100 previously unseen engine trajectories.
+
+One prediction is generated at the final observed operating cycle of
+each test engine. Predictions are compared against the supplied
+Remaining Useful Life targets.
+
+Because the model is trained using an RUL cap of 125 cycles, capped-RUL
+metrics are treated as the primary model evaluation. Raw-RUL metrics
+are also reported for transparency.
+
+The evaluation includes:
+
+- MAE, RMSE, and R-squared
+- Actual versus predicted RUL
+- Prediction residual analysis
+- Maximum and median absolute error
+- Identification of the worst-performing test engines
