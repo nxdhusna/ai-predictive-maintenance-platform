@@ -1,0 +1,26 @@
+{
+    "model_name": "Logistic Regression",
+    "event_definition": "Actual Remaining Useful Life is 30 cycles or fewer.",
+    "failure_horizon_cycles": 30,
+    "decision_threshold": 0.5,
+    "calibration_method": "Sigmoid logistic calibration on separate engine groups.",
+    "number_of_features": 125,
+    "training_engines": 60,
+    "calibration_engines": 20,
+    "validation_engines": 20,
+    "validation_metrics": {
+        "accuracy": 0.9744471744471744,
+        "precision": 0.8873873873873874,
+        "recall": 0.9532258064516129,
+        "f1": 0.9191290824261276,
+        "roc_auc": 0.9966526414212248,
+        "average_precision": 0.9827775208026988,
+        "brier_score": 0.01849493039180653,
+        "log_loss": 0.07142928965535199
+    },
+    "limitations": [
+        "Trained using simulated NASA C-MAPSS FD001 data.",
+        "Probability calibration is validated on held-out simulated engine cycles.",
+        "Not validated for real aviation or safety-critical operational use."
+    ]
+}

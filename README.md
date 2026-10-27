@@ -199,3 +199,42 @@ probability of equipment failure.
 The thresholds are prototype decision rules and would require domain
 expert validation before use in a real operational environment.
 
+
+
+## Failure-Within-30-Cycles Classification
+
+A separate binary classification pipeline estimates whether an engine
+has entered the final 30 operating cycles before simulated failure.
+
+Target definition:
+
+- Class 1: Actual RUL is 30 cycles or fewer
+- Class 0: Actual RUL is greater than 30 cycles
+
+The classifier uses three mutually exclusive groups of engines:
+
+1. Base-model training engines
+2. Probability-calibration engines
+3. Final validation engines
+
+Candidate models include Logistic Regression, Random Forest, and
+Histogram Gradient Boosting. The selected classifier is calibrated
+using sigmoid logistic calibration on a separate set of engine
+trajectories.
+
+Evaluation metrics include:
+
+- Precision
+- Recall
+- F1 score
+- ROC-AUC
+- Average Precision
+- Brier score
+- Log loss
+- Probability calibration curve
+
+The resulting probability represents the model's estimated probability
+that a simulated engine observation lies within the final 30-cycle
+failure horizon. It is not validated for real aviation or
+safety-critical maintenance decisions.
+
