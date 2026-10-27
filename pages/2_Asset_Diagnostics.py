@@ -273,3 +273,19 @@ st.caption(
     "measures unusual sensor behaviour relative to the healthy "
     "reference distribution."
 )
+
+failure_probability = selected_asset.get(
+    "failure_probability_percent"
+)
+
+if failure_probability is not None:
+    st.metric(
+        label="Failure Within 30 Cycles",
+        value=f"{failure_probability:.1f}%",
+    )
+
+    st.caption(
+        "Calibrated probability that the simulated engine "
+        "observation lies within the final 30-cycle horizon."
+    )
+

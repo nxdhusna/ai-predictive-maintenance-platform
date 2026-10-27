@@ -139,7 +139,8 @@ def load_failure_metrics():
 
 def combine_asset_and_anomaly_data():
     """
-    Combine health, maintenance, and anomaly fields by engine.
+    Combine health, maintenance, anomaly, and failure-
+    probability fields by engine.
     """
 
     asset_health = load_asset_health_data()
@@ -169,8 +170,42 @@ def combine_asset_and_anomaly_data():
         validate="one_to_one",
     )
 
-    return combined_dataframe
+    failure_probability_path = (
+        FAILURE_CLASSIFICATION_DIRECTORY
+        / "official_test_failure_probabilities.csv"
+    )
 
+    if failure_probability_path.exists():
+        failure_probabilities = (
+            load_official_failure_probabilities()
+        )
+
+        failure_columns = [
+            "engine_id",
+            "failure_probability",
+            "failure_probability_percent",
+            "predicted_within_30_cycles",
+        ]
+
+        available_failure_columns = [
+            column
+            for column in failure_columns
+            if column
+            in failure_probabilities.columns
+        ]
+
+        combined_dataframe = (
+            combined_dataframe.merge(
+                failure_probabilities[
+                    available_failure_columns
+                ],
+                on="engine_id",
+                how="left",
+                validate="one_to_one",
+            )
+        )
+
+    return combined_dataframe
 
 def format_percentage(value):
     """
@@ -273,4 +308,10 @@ def load_explainability_metadata():
     return load_json_file(
         EXPLAINABILITY_DIRECTORY
         / "explainability_metadata.json"
+    )
+
+def load_official_failure_probabilities():
+    return load_csv_file(
+        FAILURE_CLASSIFICATION_DIRECTORY
+        / "official_test_failure_probabilities.csv"
     )

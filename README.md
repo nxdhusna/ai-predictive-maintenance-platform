@@ -263,3 +263,61 @@ observation is compared with the healthy reference distribution.
 
 The anomaly score is not a calibrated probability of failure, and an
 anomaly does not by itself confirm a physical equipment fault.
+
+
+
+## Explainable AI
+
+The platform uses SHAP TreeExplainer to explain the selected Random
+Forest RUL model.
+
+### Global Explainability
+
+Fleet-level feature importance is calculated using the mean absolute
+SHAP contribution across a reproducible sample of test observations.
+This identifies the features with the greatest overall influence on
+predicted Remaining Useful Life.
+
+### Asset-Level Explainability
+
+A local explanation is generated for the final observed cycle of each
+test engine. The explanation shows:
+
+- The model's baseline RUL prediction
+- The final asset-specific RUL prediction
+- Features that increase predicted RUL
+- Features that reduce predicted RUL
+- The magnitude of each contribution
+
+SHAP values explain the behaviour of the fitted model. They do not
+establish that a sensor feature physically caused engine degradation.
+Correlated rolling and raw sensor features may also share or
+redistribute model attribution.
+
+## Maintenance Cost-Impact Simulator
+
+The dashboard includes an interactive scenario-planning module that
+translates model probabilities into risk-adjusted financial estimates.
+
+Users can configure:
+
+- Planned maintenance cost per asset
+- Unplanned repair cost
+- Downtime hours
+- Cost per downtime hour
+- Estimated avoidable-cost percentage
+- Number of high-priority assets evaluated
+
+The simulator calculates:
+
+- Direct unplanned failure impact
+- Risk-adjusted failure cost
+- Expected avoidable cost
+- Net estimated maintenance benefit
+- Benefit-cost ratio
+- Scenario return on investment
+- Potentially avoidable downtime
+
+All financial values are user-defined assumptions. The calculations are
+illustrative portfolio scenarios and do not represent guaranteed
+savings, financial advice, or validated operational estimates.
