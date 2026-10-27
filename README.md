@@ -321,3 +321,32 @@ The simulator calculates:
 All financial values are user-defined assumptions. The calculations are
 illustrative portfolio scenarios and do not represent guaranteed
 savings, financial advice, or validated operational estimates.
+
+
+## Batch CSV Prediction
+
+The deployed application accepts chronological sensor-history CSV files
+for one or more assets.
+
+The batch workflow:
+
+1. Validates the required schema.
+2. Converts and validates numeric sensor values.
+3. Detects missing values and duplicated engine-cycle records.
+4. Sorts each asset chronologically.
+5. Generates rolling means, rolling standard deviations, and
+   previous-cycle differences.
+6. Selects the latest observation for each asset.
+7. Predicts Remaining Useful Life.
+8. Estimates the calibrated probability of entering the final
+   30-cycle horizon.
+9. Calculates asset health and maintenance risk scores.
+10. Detects unusual sensor behaviour.
+11. Generates maintenance priorities and recommendations.
+12. Returns downloadable enriched results.
+
+A sample CSV is included in `data/samples/` for testing.
+
+Uploaded data must follow the NASA C-MAPSS FD001 schema. Predictions
+from other equipment types should not be interpreted as valid because
+the deployed models were trained only on simulated FD001 turbofan data.
