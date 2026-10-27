@@ -31,3 +31,13 @@ Thumbs.db
 
 # Generated processed datasets
 data/processed/*.csv
+
+
+# Pytest cache
+.pytest_cache/
+
+
+outputs/eda/
+
+# Python and testing cache
+*.pyc

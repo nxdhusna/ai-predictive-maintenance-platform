@@ -73,3 +73,5 @@ Checks missing values and duplicated observations.
 Validates engine identifiers and operating-cycle sequences.
 Generates Remaining Useful Life targets.
 Saves processed data for model development.
+
+![img_1.png](img_1.png)
