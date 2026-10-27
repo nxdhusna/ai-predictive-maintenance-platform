@@ -1,0 +1,28 @@
+{
+    "algorithm": "Isolation Forest",
+    "healthy_reference_definition": "Training observations with actual RUL greater than 60 cycles.",
+    "healthy_rul_threshold": 60,
+    "contamination_rate": 0.05,
+    "number_of_estimators": 300,
+    "number_of_features": 120,
+    "score_reference": {
+        "minimum": -0.17323066192856823,
+        "maximum": 0.11161722817632108,
+        "median": 0.06469713172691682,
+        "percentile_1": -0.050680773043258395,
+        "percentile_5": 0.0,
+        "percentile_95": 0.09460696456932924
+    },
+    "anomaly_score_interpretation": {
+        "0_to_59": "Normal",
+        "60_to_79": "Moderate",
+        "80_to_94": "High",
+        "95_to_100": "Critical"
+    },
+    "limitations": [
+        "The detector is trained using simulated NASA C-MAPSS data.",
+        "Anomalies indicate unusual multivariate sensor patterns, not confirmed faults.",
+        "The anomaly score is not a calibrated failure probability.",
+        "Operational thresholds require domain expert validation before real deployment."
+    ]
+}

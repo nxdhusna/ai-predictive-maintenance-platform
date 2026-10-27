@@ -1,0 +1,14 @@
+{
+    "algorithm": "Isolation Forest",
+    "healthy_rul_threshold": 60,
+    "configured_contamination_rate": 0.05,
+    "healthy_reference_observations": 14531,
+    "number_of_features": 120,
+    "training_observations_scored": 20631,
+    "test_observations_scored": 13096,
+    "training_anomaly_rate_percent": 24.89,
+    "test_anomaly_rate_percent": 8.23,
+    "final_cycle_anomalous_assets": 31,
+    "final_cycle_average_anomaly_score": 61.0,
+    "methodology_note": "The anomaly score measures unusual sensor behaviour relative to observations with more than 60 remaining cycles. It is not a probability of failure."
+}

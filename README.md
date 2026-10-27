@@ -238,3 +238,28 @@ that a simulated engine observation lies within the final 30-cycle
 failure horizon. It is not validated for real aviation or
 safety-critical maintenance decisions.
 
+
+## Sensor Anomaly Detection
+
+The platform uses an Isolation Forest model to identify unusual
+multivariate sensor patterns without requiring explicit anomaly labels.
+
+The anomaly detector is trained using observations with more than
+60 cycles of Remaining Useful Life as the healthy reference region.
+
+The anomaly-detection pipeline:
+
+1. Selects sensor-related raw and time-aware features.
+2. Applies robust feature scaling.
+3. Learns a healthy multivariate reference using Isolation Forest.
+4. Generates an anomaly decision score.
+5. Converts decision scores into a percentile-based anomaly score.
+6. Assigns normal, moderate, high, or critical severity.
+7. Analyses anomaly rates across Remaining Useful Life bands.
+8. Ranks test assets based on final-cycle anomaly scores.
+
+The anomaly score ranges from 0 to 100 and reflects how unusual an
+observation is compared with the healthy reference distribution.
+
+The anomaly score is not a calibrated probability of failure, and an
+anomaly does not by itself confirm a physical equipment fault.
