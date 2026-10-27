@@ -1,0 +1,28 @@
+column_name,data_type,description
+engine_id,integer,Unique engine identifier
+cycle,integer,Operational cycle number for an engine
+operational_setting_1,float,First simulated operating condition
+operational_setting_2,float,Second simulated operating condition
+operational_setting_3,float,Third simulated operating condition
+sensor_1,float,Simulated sensor measurement 1
+sensor_2,float,Simulated sensor measurement 2
+sensor_3,float,Simulated sensor measurement 3
+sensor_4,float,Simulated sensor measurement 4
+sensor_5,float,Simulated sensor measurement 5
+sensor_6,float,Simulated sensor measurement 6
+sensor_7,float,Simulated sensor measurement 7
+sensor_8,float,Simulated sensor measurement 8
+sensor_9,float,Simulated sensor measurement 9
+sensor_10,float,Simulated sensor measurement 10
+sensor_11,float,Simulated sensor measurement 11
+sensor_12,float,Simulated sensor measurement 12
+sensor_13,float,Simulated sensor measurement 13
+sensor_14,float,Simulated sensor measurement 14
+sensor_15,float,Simulated sensor measurement 15
+sensor_16,float,Simulated sensor measurement 16
+sensor_17,float,Simulated sensor measurement 17
+sensor_18,float,Simulated sensor measurement 18
+sensor_19,float,Simulated sensor measurement 19
+sensor_20,float,Simulated sensor measurement 20
+sensor_21,float,Simulated sensor measurement 21
+rul,integer,Remaining operational cycles before simulated failure

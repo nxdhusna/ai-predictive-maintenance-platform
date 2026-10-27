@@ -28,3 +28,6 @@ env/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Generated processed datasets
+data/processed/*.csv
