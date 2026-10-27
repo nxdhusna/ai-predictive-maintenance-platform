@@ -97,3 +97,29 @@ entering another engine's feature history.
 The final model evaluation will use engine-grouped data splitting rather
 than random row splitting to reduce information leakage.
 
+## Baseline RUL Model Training
+
+The project compares multiple regression models for Remaining Useful
+Life estimation:
+
+- Dummy mean baseline
+- Linear Regression
+- Random Forest Regressor
+- Histogram Gradient Boosting Regressor
+
+Training and validation data are separated by engine using grouped
+splitting. All operating cycles belonging to one engine remain within
+a single split, reducing the risk of engine-level information leakage.
+
+Models are evaluated using:
+
+- Mean Absolute Error
+- Root Mean Squared Error
+- R-squared
+- Terminal-cycle prediction performance
+
+The model with the lowest grouped-validation RMSE is saved for
+application integration.
+
+The deployed model excludes target variables, engine identifiers, and
+features that rely on knowledge of the final observed trajectory.

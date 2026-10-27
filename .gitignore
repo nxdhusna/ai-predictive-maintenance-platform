@@ -45,4 +45,9 @@ outputs/eda/
 # Generated processed datasets
 data/processed/*.csv
 
+models/rul_model.joblib
+models/rul_model_features.txt
+models/rul_model_metadata.json
+
+
 
