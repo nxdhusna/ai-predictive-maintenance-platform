@@ -49,5 +49,7 @@ models/rul_model.joblib
 models/rul_model_features.txt
 models/rul_model_metadata.json
 
+outputs/anomaly_detection/anomaly_detection_results.csv
+
 
 
