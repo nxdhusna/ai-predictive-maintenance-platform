@@ -1,0 +1,28 @@
+{
+    "total_assets": 100,
+    "average_health_score": 60.88,
+    "average_risk_score": 39.12,
+    "average_predicted_rul": 76.11,
+    "critical_assets": 17,
+    "high_risk_assets": 10,
+    "assets_requiring_action": 18,
+    "health_status_distribution": {
+        "Healthy": 35,
+        "Critical": 27,
+        "Monitor": 25,
+        "Maintenance Required": 13
+    },
+    "risk_level_distribution": {
+        "Low": 52,
+        "Moderate": 21,
+        "Critical": 17,
+        "High": 10
+    },
+    "maintenance_priority_distribution": {
+        "P4 - Routine": 66,
+        "P2 - High": 16,
+        "P3 - Scheduled": 16,
+        "P1 - Immediate": 2
+    },
+    "methodology_note": "Risk scores are interpretable operational indices derived from predicted capped RUL. They are not calibrated probabilities of failure."
+}

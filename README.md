@@ -165,3 +165,37 @@ The evaluation includes:
 - Prediction residual analysis
 - Maximum and median absolute error
 - Identification of the worst-performing test engines
+
+
+
+## Asset Health and Maintenance Intelligence
+
+The platform converts predicted Remaining Useful Life into
+decision-support indicators that are easier for operational users to
+interpret.
+
+Generated indicators include:
+
+- Asset Health Score from 0 to 100
+- Maintenance Risk Score from 0 to 100
+- Health status
+- Risk classification
+- Maintenance priority
+- Suggested maintenance window
+- Recommended operational action
+- Fleet-wide maintenance priority rank
+
+The maintenance risk score is a transparent operational index derived
+from predicted capped RUL. It is not presented as a calibrated
+probability of equipment failure.
+
+### Maintenance Priority Levels
+
+- P1 - Immediate: Predicted RUL of 10 cycles or fewer
+- P2 - High: Predicted RUL between 11 and 30 cycles
+- P3 - Scheduled: Predicted RUL between 31 and 60 cycles
+- P4 - Routine: Predicted RUL above 60 cycles
+
+The thresholds are prototype decision rules and would require domain
+expert validation before use in a real operational environment.
+
