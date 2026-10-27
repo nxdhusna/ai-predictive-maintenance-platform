@@ -41,3 +41,8 @@ outputs/eda/
 
 # Python and testing cache
 *.pyc
+
+# Generated processed datasets
+data/processed/*.csv
+
+

@@ -75,3 +75,25 @@ Generates Remaining Useful Life targets.
 Saves processed data for model development.
 
 ![img_1.png](img_1.png)
+
+## Time-Aware Feature Engineering
+
+The feature-engineering pipeline creates degradation features while
+maintaining engine boundaries and chronological order.
+
+Generated features include:
+
+- Capped Remaining Useful Life target
+- Sensor rolling means over 5, 10, and 20 cycles
+- Sensor rolling standard deviations
+- Previous-cycle sensor differences
+- Log-transformed cycle count
+- Observed lifecycle fraction
+
+All rolling and difference features are calculated independently for
+each engine. This prevents information from one engine trajectory from
+entering another engine's feature history.
+
+The final model evaluation will use engine-grouped data splitting rather
+than random row splitting to reduce information leakage.
+
