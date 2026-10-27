@@ -7,3 +7,4 @@ joblib
 pytest
 matplotlib
 seaborn
+shap

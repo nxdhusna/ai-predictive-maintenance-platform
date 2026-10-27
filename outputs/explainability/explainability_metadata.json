@@ -1,0 +1,21 @@
+{
+    "explainer": "SHAP TreeExplainer",
+    "model_type": "RandomForestRegressor",
+    "expected_value": 86.97155515971258,
+    "global_sample_size": 1000,
+    "locally_explained_assets": 100,
+    "number_of_features": 125,
+    "maximum_global_additivity_difference": 5.968558980384842e-13,
+    "maximum_local_additivity_difference": 3.836930773104541e-13,
+    "interpretation": {
+        "positive_shap": "Feature increases the predicted RUL.",
+        "negative_shap": "Feature reduces the predicted RUL.",
+        "absolute_shap": "Magnitude of feature influence on the model prediction."
+    },
+    "limitations": [
+        "SHAP explains the fitted model's behaviour and does not establish causal relationships.",
+        "Correlated rolling features may share or redistribute attribution.",
+        "Explanations are based on simulated NASA C-MAPSS data.",
+        "The model is not validated for real-world safety-critical maintenance use."
+    ]
+}

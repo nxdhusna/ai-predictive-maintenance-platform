@@ -37,6 +37,13 @@ FAILURE_CLASSIFICATION_DIRECTORY = (
     / "failure_classification"
 )
 
+EXPLAINABILITY_DIRECTORY = (
+    PROJECT_ROOT
+    / "outputs"
+    / "explainability"
+)
+
+
 
 @st.cache_data
 def load_csv_file(file_path):
@@ -241,3 +248,29 @@ def render_sidebar_information():
             "portfolio project."
         )
 
+def load_global_feature_importance():
+    return load_csv_file(
+        EXPLAINABILITY_DIRECTORY
+        / "global_feature_importance.csv"
+    )
+
+
+def load_local_asset_explanations():
+    return load_csv_file(
+        EXPLAINABILITY_DIRECTORY
+        / "local_asset_explanations.csv"
+    )
+
+
+def load_local_explanation_summary():
+    return load_csv_file(
+        EXPLAINABILITY_DIRECTORY
+        / "local_explanation_summary.csv"
+    )
+
+
+def load_explainability_metadata():
+    return load_json_file(
+        EXPLAINABILITY_DIRECTORY
+        / "explainability_metadata.json"
+    )
