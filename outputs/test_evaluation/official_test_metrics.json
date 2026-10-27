@@ -1,0 +1,46 @@
+{
+    "official_test_evaluation": {
+        "number_of_test_engines": 100,
+        "rul_cap": 125,
+        "primary_evaluation": "capped_rul",
+        "capped_rul_metrics": {
+            "mae": 11.657009395220385,
+            "rmse": 16.622519543319182,
+            "r2": 0.8279383847247497
+        },
+        "raw_rul_metrics": {
+            "mae": 12.727009395220385,
+            "rmse": 17.82077378379096,
+            "r2": 0.8160949858327164
+        },
+        "mean_predicted_rul": 76.11460838264026,
+        "mean_actual_capped_rul": 74.45,
+        "maximum_absolute_capped_error": 51.06597839186665,
+        "median_absolute_capped_error": 7.100093552301239,
+        "limitations": [
+            "The model was trained using a capped RUL target of 125 cycles.",
+            "Capped metrics are the primary fair comparison for the current trained model.",
+            "The dataset is simulated and is not validated for real safety-critical maintenance use."
+        ]
+    },
+    "grouped_validation_evaluation": {
+        "model_name": "Random Forest",
+        "target": "rul_capped",
+        "rul_cap": 125,
+        "random_state": 42,
+        "validation_group": "engine_id",
+        "validation_group_fraction": 0.2,
+        "number_of_features": 125,
+        "training_engines": 80,
+        "validation_engines": 20,
+        "validation_mae": 9.6788163596158,
+        "validation_rmse": 14.03908226731314,
+        "validation_r2": 0.8867393010201899,
+        "limitations": [
+            "Trained on simulated NASA C-MAPSS FD001 data.",
+            "Not validated for safety-critical operational use.",
+            "Designed as a portfolio demonstration.",
+            "Predictions are capped at 125 cycles."
+        ]
+    }
+}
